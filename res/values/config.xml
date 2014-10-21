@@ -43,4 +43,8 @@
          if this package has not registered any accounts, then it will be ignored.
          [DO NOT TRANSLATE] -->
     <string name="default_connection_manager_component" translatable="false"></string>
+
+    <!-- Flag indicating if the speed up audio on mt call code should be executed -->
+    <bool name="config_speed_up_audio_on_mt_calls">false</bool>
+
 </resources>
