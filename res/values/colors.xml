@@ -15,7 +15,6 @@
   -->
 
 <resources>
-
     <color name="theme_color">#0288d1</color>
     <color name="theme_color_dark">#0277bd</color>
     <color name="settings_primary_text_color">#333333</color>
@@ -27,5 +26,7 @@
     phone_settings_actionbar_text_color-->
     <color name="actionbar_text_color">#ffffff</color>
     <color name="actionbar_background_color">@color/theme_color</color>
-
+    <color name="dialer_settings_actionbar_text_color">#ffffff</color>
+    <color name="dialer_settings_actionbar_background_color">@color/theme_color</color>
+    <color name="dialer_settings_color_dark">#0277bd</color>
 </resources>
