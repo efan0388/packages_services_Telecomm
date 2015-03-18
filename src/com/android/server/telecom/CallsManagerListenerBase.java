@@ -76,4 +76,8 @@ class CallsManagerListenerBase implements CallsManager.CallsManagerListener {
     @Override
     public void onCanAddCallChanged(boolean canAddCall) {
     }
+
+    @Override
+    public void onProcessIncomingCall(Call call) {
+    }
 }
