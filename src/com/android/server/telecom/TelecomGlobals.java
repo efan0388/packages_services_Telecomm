@@ -49,6 +49,8 @@ public final class TelecomGlobals {
      * Maintains the list of registered {@link android.telecom.PhoneAccountHandle}s.
      */
     private PhoneAccountRegistrar mPhoneAccountRegistrar;
+	
+	private BlacklistCallNotifier mBlacklistCallNotifier;
 
     /**
      * The calls manager for the Telecom service.
@@ -84,8 +86,9 @@ public final class TelecomGlobals {
 
         mMissedCallNotifier = new MissedCallNotifier(mContext);
         mPhoneAccountRegistrar = new PhoneAccountRegistrar(mContext);
+		mBlacklistCallNotifier =  new BlacklistCallNotifier(mContext);
 
-        mCallsManager = new CallsManager(mContext, mMissedCallNotifier, mPhoneAccountRegistrar);
+        mCallsManager = new CallsManager(mContext, mMissedCallNotifier, mBlacklistCallNotifier, mPhoneAccountRegistrar);
         CallsManager.initialize(mCallsManager);
         Log.i(this, "CallsManager initialized");
 
@@ -98,6 +101,10 @@ public final class TelecomGlobals {
     MissedCallNotifier getMissedCallNotifier() {
         return mMissedCallNotifier;
     }
+	
+	BlacklistCallNotifier getBlacklistCallNotifier() {
+		return mBlacklistCallNotifier;
+	}
 
     PhoneAccountRegistrar getPhoneAccountRegistrar() {
         return mPhoneAccountRegistrar;
