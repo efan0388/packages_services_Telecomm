@@ -18,7 +18,12 @@ package com.android.server.telecom;
 
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.content.res.Resources;
 import android.net.Uri;
+import android.telecom.InCallService;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.PhoneNumberUtils;
@@ -29,6 +34,8 @@ import com.android.internal.annotations.VisibleForTesting;
 
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -72,6 +79,40 @@ public final class TelephonyUtil {
     public static boolean shouldProcessAsEmergency(Context context, Uri handle) {
         return handle != null && PhoneNumberUtils.isLocalEmergencyNumber(
                 context, handle.getSchemeSpecificPart());
+    }
+
+    static ComponentName getDialerComponentName(Context context) {
+        Resources resources = context.getResources();
+        PackageManager packageManager = context.getPackageManager();
+        Intent i = new Intent(Intent.ACTION_DIAL);
+        List<ResolveInfo> resolveInfo = packageManager.queryIntentActivities(i, 0);
+        List<String> entries = Arrays.asList(resources.getStringArray(
+                R.array.dialer_default_classes));
+        for (ResolveInfo info : resolveInfo) {
+            ComponentName componentName = new ComponentName(info.activityInfo.packageName,
+                    info.activityInfo.name);
+            if (entries.contains(componentName.flattenToString())) {
+                return componentName;
+            }
+        }
+        return null;
+    }
+
+    static ComponentName getInCallComponentName(Context context) {
+        Resources resources = context.getResources();
+        PackageManager packageManager = context.getPackageManager();
+        Intent i = new Intent(InCallService.SERVICE_INTERFACE);
+        List<ResolveInfo> resolveInfo = packageManager.queryIntentServices(i, 0);
+        List<String> entries = Arrays.asList(resources.getStringArray(
+                R.array.incall_default_classes));
+        for (ResolveInfo info : resolveInfo) {
+            ComponentName componentName = new ComponentName(info.serviceInfo.packageName,
+                    info.serviceInfo.name);
+            if (entries.contains(componentName.flattenToString())) {
+                return componentName;
+            }
+        }
+        return null;
     }
 
     public static void sortSimPhoneAccounts(Context context, List<PhoneAccount> accounts) {
