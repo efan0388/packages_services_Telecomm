@@ -17,5 +17,18 @@ limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Blacklist preferences -->
+  <string name="blacklist_title">Lista de llamadas bloqueadas</string>
+  <string name="blacklist_summary_disabled">Desactivada</string>
+  <string name="blacklist_summary">No se reciben llamadas o mensajes entrantes de números de teléfono en la lista de llamadas bloqueadas</string>
   <!-- Blacklist notifications -->
+  <string name="blacklist_call_notification">Se bloqueó una llamada de %s</string>
+  <string name="blacklist_call_notification_private_number">Se bloqueó una llamada de un número privado</string>
+  <string name="blacklist_call_notification_unknown_number">Se bloqueó una llamada de un número desconocido %s</string>
+  <string name="blacklist_call_notification_multiple"><xliff:g id="count"> %d </xliff:g> llamadas fueron bloqueadas</string>
+  <string name="blacklist_message_notification">Se bloqueó un mensaje de %s</string>
+  <string name="blacklist_message_notification_private_number">Se bloqueó un mensaje de un número privado</string>
+  <string name="blacklist_message_notification_unknown_number">Se bloqueó un mensaje de número desconocido %s</string>
+  <string name="blacklist_message_notification_multiple"><xliff:g id="count"> %d </xliff:g> mensajes fueron bloqueados</string>
+  <string name="blacklist_notification_list_private">Privado</string>
+  <string name="unblock_number">Desbloquear</string>
 </resources>

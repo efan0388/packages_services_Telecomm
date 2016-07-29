@@ -17,5 +17,18 @@ limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Blacklist preferences -->
+  <string name="blacklist_title">Liste blockierter Anrufer</string>
+  <string name="blacklist_summary_disabled">Deaktiveirt</string>
+  <string name="blacklist_summary">Sie erhalten keine eingehenden Anrufe oder Nachrichten von Telefonnummern welche auf der Blockier-Liste sind</string>
   <!-- Blacklist notifications -->
+  <string name="blacklist_call_notification">Anruf von %s blockiert</string>
+  <string name="blacklist_call_notification_private_number">Anruf einer privaten Nummer wurde blockiert</string>
+  <string name="blacklist_call_notification_unknown_number">Anruf der unbekannten Nummer %s blockiert</string>
+  <string name="blacklist_call_notification_multiple"><xliff:g id="count">%d</xliff:g> Anrufe wurden blockiert</string>
+  <string name="blacklist_message_notification">Nachricht von %s blockiert</string>
+  <string name="blacklist_message_notification_private_number">Nachricht einer unterdrückten Nummer blockiert</string>
+  <string name="blacklist_message_notification_unknown_number">Nachricht der unbekannten Nummer %s blockiert</string>
+  <string name="blacklist_message_notification_multiple"><xliff:g id="count">%d</xliff:g> Nachrichten wurden blockiert</string>
+  <string name="blacklist_notification_list_private">Unterdrückt</string>
+  <string name="unblock_number">Blockierung aufheben</string>
 </resources>
